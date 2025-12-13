@@ -101,18 +101,36 @@ http://localhost:3000
 ## 📁 Estrutura de Pastas (Resumo)
 
 ```
-src/
-├── app/
-│   ├── controllers/
-│   ├── middlewares/
-│   ├── models/
-│   └── schemas/
-├── config/
-├── database/
-│   └── migrations/
-├── routes.js
-├── app.js
-└── server.js
+API-DevBurguer/
+├── node_modules/                          # Dependências instaladas (gerado pelo gerenciador de pacotes)
+├── src/
+│   ├── app/
+│   │   ├── controllers/
+│   │   │   ├── UserController.js         # Criação de usuário (POST /users)
+│   │   │   ├── SessionController.js      # Autenticação/login (POST /sessions)
+│   │   │   ├── ProductController.js      # Produtos: criar/atualizar/listar
+│   │   │   ├── CategoryController.js     # Categorias: criar/atualizar/listar
+│   │   │   └── OrderController.js        # Pedidos: criar/atualizar/listar
+│   │   ├── middlewares/
+│   │   │   ├── auth.js                   # Middleware de autenticação (protege rotas)
+│   │   │   └── admin.js                  # Middleware de autorização (verifica admin)
+│   │   ├── models/                       # (inferido) Modelos/ORM
+│   │   └── schemas/                      # (inferido) Validações de entrada (ex.: yup/joi/zod)
+│   ├── config/
+│   │   └── multer.cjs                    # Configuração do Multer (upload de arquivos)
+│   ├── database/
+│   │   ├── migrations/                   # (inferido) Migrations do banco (Sequelize/Knex)
+│   │   └── index.js                      # (inferido) Inicialização/conexão com o banco
+│   ├── uploads/                          # Onde ficam os arquivos enviados (imagens, etc.)
+│   ├── app.js                            # Bootstrap do Express (carrega middlewares básicos)
+│   ├── routes.js                         # Declaração central das rotas da API
+│   └── server.js                         # Inicializa o servidor HTTP (escuta a porta)
+├── .gitignore                            # Arquivos/pastas ignorados pelo Git
+├── .sequelizerc                          # (inferido) Configuração do Sequelize CLI
+├── biome.json                            # (opcional) Formatação/lint (Biome)
+├── eslint.config.js                      # Regras do ESLint
+├── package.json                          # Metadados do projeto e scripts
+└── pnpm-lock.yaml                        # Lockfile do pnpm (versões exatas das deps)
 ```
 
 ---
